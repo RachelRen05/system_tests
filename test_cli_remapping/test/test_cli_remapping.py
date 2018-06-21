@@ -134,6 +134,8 @@ async def test_namespace_replacement(node_fixture):
             break
         await asyncio.sleep(TIME_BETWEEN_ATTEMPTS)
         rclpy.spin_once(node_fixture['node'], timeout_sec=0)
+    print(get_topics(node_fixture))
+    print(get_services(node_fixture))
     assert name in get_topics(node_fixture) and name in get_services(node_fixture)
 
 
@@ -146,6 +148,8 @@ async def test_topic_and_service_replacement(node_fixture):
             break
         await asyncio.sleep(TIME_BETWEEN_ATTEMPTS)
         rclpy.spin_once(node_fixture['node'], timeout_sec=0)
+    print(get_topics(node_fixture))
+    print(get_services(node_fixture))
     assert name in get_topics(node_fixture) and name in get_services(node_fixture)
 
 
@@ -158,6 +162,8 @@ async def test_topic_replacement(node_fixture):
             break
         await asyncio.sleep(TIME_BETWEEN_ATTEMPTS)
         rclpy.spin_once(node_fixture['node'], timeout_sec=0)
+    print(get_topics(node_fixture))
+    print(get_services(node_fixture))
     assert name in get_topics(node_fixture) and name not in get_services(node_fixture)
 
 
@@ -170,4 +176,6 @@ async def test_service_replacement(node_fixture):
             break
         await asyncio.sleep(TIME_BETWEEN_ATTEMPTS)
         rclpy.spin_once(node_fixture['node'], timeout_sec=0)
+    print(get_topics(node_fixture))
+    print(get_services(node_fixture))
     assert name not in get_topics(node_fixture) and name in get_services(node_fixture)
